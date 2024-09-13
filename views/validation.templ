@@ -1,0 +1,9 @@
+package views
+
+templ Validation(show bool) {
+    if show {
+        <p class="validation-error" id="validation-message" hx-swap-oob="true">This item already exists!</p>
+    } else {
+        <div style="display: none" id="validation-message" hx-swap-oob="true"></div>
+    }
+}

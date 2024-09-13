@@ -1,0 +1,24 @@
+package views
+
+import (
+    "strconv"
+    "fmt"
+)
+
+templ InfiniteScrollItems(infiniteScrollData []int) {
+    for i, id := range infiniteScrollData {
+        if i == len(infiniteScrollData) - 1 {
+            <li hx-trigger="revealed" hx-swap="outerHTML" hx-get={fmt.Sprintf("/infinite-scroll/%s", strconv.Itoa(id))}>
+                <div class="infinite-scroll-item">
+                    <h3>{strconv.Itoa(id)}</h3>
+                </div>
+            </li>
+        } else {
+            <li>
+                <div class="infinite-scroll-item">
+                    <h3>{strconv.Itoa(id)}</h3>
+                </div>
+            </li>
+        }
+    }
+}

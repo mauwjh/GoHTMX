@@ -1,0 +1,19 @@
+package views
+
+type FormValues struct {
+    title string
+    quantity string
+}
+
+templ Form() {
+        <form hx-post="/groceries" hx-target=".grocery-list ul" hx-swap="beforeend" id="form">
+            <div class="input-container" id="title-container">
+                <input type="text" name="title" placeholder="title" />
+            </div>
+            <div class="input-container">
+                <input type="number" name="quantity" placeholder="quantity" />
+            </div>
+            <button>Add Grocery Item</button>
+        </form>
+        <div style="display: none" id="validation-message"></div>
+}

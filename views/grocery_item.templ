@@ -1,0 +1,16 @@
+package views
+
+import (
+    "strconv"
+    "fmt"
+)
+
+templ Grocery(groceryItem GroceryItem) {
+    <li data-id={strconv.Itoa(groceryItem.Id)}>
+        <div class="details">
+            <h3>{groceryItem.Title}</h3>
+            <p>x {strconv.Itoa(groceryItem.Quantity)}</p>
+        </div>
+        <button hx-delete={fmt.Sprintf("/groceries/%s", strconv.Itoa(groceryItem.Id))} hx-swap="delete" hx-target="closest li">Delete</button>
+    </li>
+}

@@ -1,0 +1,15 @@
+package views
+
+type GroceryItem struct {
+    Id int
+    Title string
+    Quantity int
+}
+
+templ GroceryList(groceryList []GroceryItem) {
+    <ul>
+        for _, groceryItem:= range groceryList {
+           @Grocery(groceryItem)
+        }
+    </ul>
+}
